@@ -22,6 +22,12 @@ namespace datastructures.LinkedList
             length = 1;
         }
 
+        private void ResetArray()
+        {
+            root = null;
+            length = 0;
+        }
+
         public int[] ReturnArray()
         {
             int[] array = new int[length];
@@ -91,25 +97,32 @@ namespace datastructures.LinkedList
 
         public void AddValueAtIndex(int index, int value)
         {
-            Node tmp = root;
-            if (index == 0)
+            if (index == length)
             {
-                tmp = new Node(value);
-                tmp.Next = root;
-                root = tmp;
+                AddToEnd(value);
             }
-            else
-            if (index > 0)
+            else if((length > 0) && (index < length) && (index >= 0))
             {
-                for (int i = 0; i < index - 1; i++)
+                Node tmp = root;
+                if (index == 0)
                 {
-                    tmp = tmp.Next;
+                    tmp = new Node(value);
+                    tmp.Next = root;
+                    root = tmp;
                 }
-                Node c = new Node(value);
-                c.Next = tmp.Next;
-                tmp.Next = c;
+                else
+                if (index > 0)
+                {
+                    for (int i = 0; i < index - 1; i++)
+                    {
+                        tmp = tmp.Next;
+                    }
+                    Node c = new Node(value);
+                    c.Next = tmp.Next;
+                    tmp.Next = c;
+                }
+                length++;
             }
-            length++;
         }
 
         public void ChangeValueAtIndex(int index, int value)
@@ -130,19 +143,25 @@ namespace datastructures.LinkedList
 
         public void DelValueEnd()
         {
-            Node tmp = root;
-            for (int i = 0; i < length - 2; i++)
+            if (length > 0)
             {
-                tmp = tmp.Next;
-
+                Node tmp = root;
+                for (int i = 0; i < length - 2; i++)
+                {
+                    tmp = tmp.Next;
+                }
+                tmp.Next = null;
+                length--;
             }
-            tmp.Next = null;
-            length--;
         }
 
         public void DelValueEnd(int n)
         {
-            if (n <= length)
+            if (n >= length)
+            {
+                ResetArray();
+            }
+            else if (n <= length)
             {
                 Node tmp = root;
                 for (int i = 0; i < length - 1 - n; i++)
@@ -156,7 +175,7 @@ namespace datastructures.LinkedList
 
         public void DelValueBegin()
         {
-            if (length != 0)
+            if (length > 0)
             {
                 Node tmp = root;
                 tmp = tmp.Next;
@@ -167,7 +186,11 @@ namespace datastructures.LinkedList
 
         public void DelValueBegin(int n)
         {
-            if (n >= 0)
+            if (n >= length)
+            {
+                ResetArray();
+            }
+            else if (n >= 0)
             {
                 Node tmp = root;
                 for (int i = 0; i < n; i++)

@@ -83,9 +83,9 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 3, 4, 5 }, new int[] { 1, 2 }, ExpectedResult = new int[] { 1, 2, 3, 4, 5 })]
+        [TestCase(new int[] { }, new int[] { 1, 2 }, ExpectedResult = new int[] { 1, 2 })]
         [TestCase(new int[] { 3, 4, 5 }, new int[] { }, ExpectedResult = new int[] { 3, 4, 5 })]
-        [TestCase(new int[] { 3, 5, 4 }, new int[] { 0 }, ExpectedResult = new int[] { 0, 3, 5, 4 })]
+        [TestCase(new int[] { }, new int[] { }, ExpectedResult = new int[] { })]
         public int[] AddToBeginTest(int[] array, int[] a)
         {
             InitArray(array);
@@ -93,8 +93,11 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 1, 2, 3 }, 0, 9, ExpectedResult = new int[] { 9, 1, 2, 3 })]
-        [TestCase(new int[] { 1, 2, 3 }, 1, 9, ExpectedResult = new int[] { 1, 9, 2, 3 })]
+        [TestCase(new int[] { 1, 2, 3 }, -1, 9, ExpectedResult = new int[] { 1, 2, 3 })]
+        [TestCase(new int[] { }, 0, 0, ExpectedResult = new int[] { 0 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 0, 0, ExpectedResult = new int[] { 0, 1, 2, 3, 4, 5 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 4, 0, ExpectedResult = new int[] { 1, 2, 3, 4, 0, 5 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 2, 0, ExpectedResult = new int[] { 1, 2, 0, 3, 4, 5 })]
         [TestCase(new int[] { 1, 2, 3 }, 3, 9, ExpectedResult = new int[] { 1, 2, 3, 9 })]
         public int[] AddValueAtIndexTest(int[] array, int i, int a)
         {
@@ -103,7 +106,7 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 1, 2, 3 }, ExpectedResult = new int[] { 1, 2 })]
+        [TestCase(new int[] { }, ExpectedResult = new int[] { })]
         [TestCase(new int[] { -2, 5, 0 }, ExpectedResult = new int[] { -2, 5 })]
         [TestCase(new int[] { 1, -25, 3 }, ExpectedResult = new int[] { 1, -25 })]
         public int[] DelValueEndTest(int[] array)
@@ -113,8 +116,8 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 1, 2, 3, 4 }, 2, ExpectedResult = new int[] { 1, 2 })]
-        [TestCase(new int[] { 1, 2, 3, 4 }, 4, ExpectedResult = new int[] { })]
+        [TestCase(new int[] { }, 2, ExpectedResult = new int[] { })]
+        [TestCase(new int[] { 1 }, 0, ExpectedResult = new int[] { 1 })]
         [TestCase(new int[] { 1, 2, 3, 4 }, 3, ExpectedResult = new int[] { 1 })]
         public int[] DelValueEndTest(int[] array, int n)
         {
@@ -123,8 +126,8 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 1, 2, 3 }, ExpectedResult = new int[] { 2, 3 })]
-        [TestCase(new int[] { 0, 25, 3 }, ExpectedResult = new int[] { 25, 3 })]
+        [TestCase(new int[] { 3 }, ExpectedResult = new int[] { })]
+        [TestCase(new int[] { }, ExpectedResult = new int[] { })]
         [TestCase(new int[] { 17, 2, 32 }, ExpectedResult = new int[] { 2, 32 })]
         public int[] DelValueBeginTest(int[] array)
         {
@@ -133,9 +136,9 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
+        [TestCase(new int[] { }, 2, ExpectedResult = new int[] { })]
         [TestCase(new int[] { 1, 2, 3, 4 }, 2, ExpectedResult = new int[] { 3, 4 })]
-        [TestCase(new int[] { 1, 2, 3, 4 }, 4, ExpectedResult = new int[] { })]
-        [TestCase(new int[] { 1, 2, 3, 4 }, 3, ExpectedResult = new int[] { 4 })]
+        [TestCase(new int[] { 1, 2, 3, 4 }, 6, ExpectedResult = new int[] { })]
         public int[] DelValueBeginTest(int[] array, int n)
         {
             InitArray(array);
@@ -143,7 +146,7 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 1, 2, 3 }, 1, ExpectedResult = new int[] { 1, 3 })]
+        [TestCase(new int[] { }, 27, ExpectedResult = new int[] { })]
         [TestCase(new int[] { 1, 2, 3 }, 0, ExpectedResult = new int[] { 2, 3 })]
         [TestCase(new int[] { 1, 2, 3, 4 }, 3, ExpectedResult = new int[] { 1, 2, 3 })]
         public int[] DelValueAtIndexTest(int[] array, int i)
@@ -155,7 +158,7 @@ namespace datastructures.tests
 
         [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, 1, 3, ExpectedResult = new int[] { 1, 5, 6 })]
         [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, 0, 0, ExpectedResult = new int[] { 1, 2, 3, 4, 5, 6 })]
-        [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, 0, 6, ExpectedResult = new int[] { })]
+        [TestCase(new int[] { }, 0, 6, ExpectedResult = new int[] { })]
         public int[] DelValueAtIndexTest(int[] array, int i, int n)
         {
             InitArray(array);
@@ -163,9 +166,9 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 1, 2, 3, 1 }, 1, ExpectedResult = new int[] { 2, 3 })]
+        [TestCase(new int[] { 2, 3}, 1, ExpectedResult = new int[] { 2, 3 })]
         [TestCase(new int[] { 1, 2, 3, 4 }, 1, ExpectedResult = new int[] { 2, 3, 4 })]
-        [TestCase(new int[] { 1, 1, 1, 1 }, 1, ExpectedResult = new int[] { })]
+        [TestCase(new int[] { }, null, ExpectedResult = new int[] { })]
         public int[] DelValueAtValueTest(int[] array, int i)
         {
             InitArray(array);
@@ -202,8 +205,8 @@ namespace datastructures.tests
         }
 
         [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, 2, 47, ExpectedResult = new int[] { 1, 2, 47, 4, 5, 6 })]
-        [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, 5, -38, ExpectedResult = new int[] { 1, 2, 3, 4, 5, -38 })]
-        [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, 0, 0, ExpectedResult = new int[] { 0, 2, 3, 4, 5, 6 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, 6, -38, ExpectedResult = new int[] { 1, 2, 3, 4, 5, 6 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6 }, -1, 0, ExpectedResult = new int[] { 1, 2, 3, 4, 5, 6 })]
         public int[] ChangeValueAtIndexTest(int[] array, int i, int a)
         {
             InitArray(array);
@@ -256,8 +259,8 @@ namespace datastructures.tests
             return list.SearchMinIndex();
         }
 
-        [TestCase(new int[] { 1, 3, 2, 4, 4, 0 }, ExpectedResult = new int[] { 0, 1, 2, 3, 4, 4 })]
-        [TestCase(new int[] { 1, -3, 2, -4, 4, 0 }, ExpectedResult = new int[] { -4, -3, 0, 1, 2, 4 })]
+        [TestCase(new int[] { }, ExpectedResult = new int[] { })]
+        [TestCase(new int[] { -4 }, ExpectedResult = new int[] { -4 })]
         [TestCase(new int[] { -1, -3, -2, 4, 4, 0 }, ExpectedResult = new int[] { -3, -2, -1, 0, 4, 4 })]
         public int[] SortAscendingTest(int[] array)
         {
@@ -266,8 +269,8 @@ namespace datastructures.tests
             return list.ReturnArray();
         }
 
-        [TestCase(new int[] { 0, 4, 4, 2, 3, 1 }, ExpectedResult = new int[] { 4, 4, 3, 2, 1, 0 })]
-        [TestCase(new int[] { 1, -3, 2, -4, 4, 0 }, ExpectedResult = new int[] { 4, 2, 1, 0, -3, -4 })]
+        [TestCase(new int[] {  }, ExpectedResult = new int[] {  })]
+        [TestCase(new int[] { -3 }, ExpectedResult = new int[] { -3 })]
         [TestCase(new int[] { -1, -3, -2, 4, 4, 0 }, ExpectedResult = new int[] { 4, 4, 0, -1, -2, -3 })]
         public int[] SortDescendingTest(int[] array)
         {

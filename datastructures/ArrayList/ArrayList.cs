@@ -136,22 +136,29 @@ namespace datastructures
 
         public void AddValueAtIndex(int index, int value)
         {
-            if (length >= array.Length)
+            if (index == length)
             {
-                UpArraySize();
+                AddToEnd(value);
             }
-            int[] newArray = new int[length + 1];
-            for (int i = 0; i < length; i++)
+            else if((length > 0) && (index < length) && (index >= 0))
             {
-                newArray[i] = array[i];
+                if (length >= array.Length)
+                {
+                    UpArraySize();
+                }
+                int[] newArray = new int[length + 1];
+                for (int i = 0; i < length; i++)
+                {
+                    newArray[i] = array[i];
+                }
+                for (int i = index; i < length; i++)
+                {
+                    newArray[i + 1] = array[i];
+                }
+                newArray[index] = value;
+                array = newArray;
+                length++;
             }
-            for (int i = index; i < length; i++)
-            {
-                newArray[i + 1] = array[i];
-            }
-            newArray[index] = value;
-            array = newArray;
-            length++;
         }
 
         public void ChangeValueAtIndex(int index, int value)
@@ -162,8 +169,11 @@ namespace datastructures
 
         public void DelValueEnd()
         {
-            DownArraySize();
-            length--;
+            if (length > 0)
+            {
+                DownArraySize();
+                length--;
+            }
         }
 
         public void DelValueEnd(int n)
@@ -177,15 +187,18 @@ namespace datastructures
 
         public void DelValueBegin()
         {
-            int[] newArray = new int[length];
-            for (int i = 0; i < length - 1; i++)
+            if (length > 0)
             {
-                newArray[i] = array[i + 1];
-            }
-            array = newArray;
+                int[] newArray = new int[length];
+                for (int i = 0; i < length - 1; i++)
+                {
+                    newArray[i] = array[i + 1];
+                }
+                array = newArray;
 
-            DownArraySize();
-            length--;
+                DownArraySize();
+                length--;
+            }
         }
 
         public void DelValueBegin(int n)
