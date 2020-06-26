@@ -50,8 +50,12 @@ namespace datastructures
 
         string SearchMinIndex();
 
-        void SortAscending();
+        void BubbleSortAscending();
+        
+        void InsertionSortAscending();
 
-        void SortDescending();
+        void BubbleSortDescending();
+        
+        void InsertionSortDescending();
     }
 }

@@ -375,7 +375,7 @@ namespace datastructures.LinkedList
             else return "Список пуст";
         }
 
-        public void SortAscending()
+        public void BubbleSortAscending()
         {
             Node prev = null;
             Node minPrev = null;
@@ -425,8 +425,30 @@ namespace datastructures.LinkedList
                 place = place.Next;
             }
         }
+        
+        public void InsertionSortAscending()
+        {
+            if (length != 0)
+            {
+                Node tmp = root;
+                while (tmp.Next != null)
+                {
+                    if (tmp.Value > tmp.Next.Value)
+                    {
+                        int a = tmp.Next.Value;
+                        tmp.Next.Value = tmp.Value;
+                        tmp.Value = a;
+                        InsertionSortAscending();
+                    }
+                    else
+                    {
+                        tmp = tmp.Next;
+                    }
+                }
+            } 
+        }
 
-        public void SortDescending()
+        public void BubbleSortDescending()
         {
             Node prev = null;
             Node minPrev = null;
@@ -475,6 +497,28 @@ namespace datastructures.LinkedList
                 place.Next = min;
                 place = place.Next;
             }
+        }
+
+        public void InsertionSortDescending()
+        {
+            if (length != 0)
+            {
+                Node tmp = root;
+                while (tmp.Next != null)
+                {
+                    if (tmp.Value < tmp.Next.Value)
+                    {
+                        int a = tmp.Next.Value;
+                        tmp.Next.Value = tmp.Value;
+                        tmp.Value = a;
+                        InsertionSortDescending();
+                    }
+                    else
+                    {
+                        tmp = tmp.Next;
+                    }
+                }
+            } 
         }
 
     }
