@@ -20,3 +20,5 @@ C:\Users\Сергей\source\repos\datastructures\datastructures\obj\Debug\netco
 C:\Users\Сергей\source\repos\datastructures\datastructures\obj\Debug\netcoreapp3.1\datastructures.AssemblyInfo.cs
 C:\Users\Сергей\source\repos\datastructures\datastructures\obj\Debug\netcoreapp3.1\datastructures.dll
 C:\Users\Сергей\source\repos\datastructures\datastructures\obj\Debug\netcoreapp3.1\datastructures.pdb
+C:\Users\Сергей\source\repos\datastructures\datastructures\obj\Debug\netcoreapp3.1\datastructures.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\source\repos\datastructures\datastructures\obj\Debug\netcoreapp3.1\datastructures.genruntimeconfig.cache

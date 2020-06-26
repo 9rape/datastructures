@@ -509,7 +509,34 @@ namespace datastructures.DoubleLinkedList
             else return "Список пуст";
         }
 
-        public void SortAscending()
+        public void BubbleSortAscending()
+        {
+            if (length > 0)
+            {
+                for (var i = 1; i < length; i++)
+                {
+                    Node current = root;
+                    for (int j = 0; j < i; j++)
+                    {
+                        current = current.Next;
+                    }
+
+                    Node prev = current.Prev;
+                    while (prev.Value > current.Value)
+                    {
+                        ShiftNodes(prev, current);
+                        if (current == root)
+                        {
+                            break;
+                        }
+
+                        prev = current.Prev;
+                    }
+                }
+            }
+        }
+        
+        public void InsertionSortAscending()
         {
             if (length > 0)
             {
@@ -545,25 +572,66 @@ namespace datastructures.DoubleLinkedList
             }
         }
 
-        public void SortDescending()
+        public void BubbleSortDescending()
         {
             for (var i = 1; i < length; i++)
             {
-                Node current = root;
-                for (int j = 0; j < i; j++)
+                if (length > 0)
                 {
-                    current = current.Next;
-                }
-                Node prev = current.Prev;
-                while (prev.Value < current.Value)
-                {
-                    ShiftNodes(prev, current);
-                    if (current == root)
+                    Node current = root;
+                    for (int j = 0; j < i; j++)
                     {
-                        break;
+                        current = current.Next;
                     }
-                    prev = current.Prev;
+
+                    Node prev = current.Prev;
+                    while (prev.Value < current.Value)
+                    {
+                        ShiftNodes(prev, current);
+                        if (current == root)
+                        {
+                            break;
+                        }
+
+                        prev = current.Prev;
+                    }
                 }
+            }
+        }
+        
+        public void InsertionSortDescending()
+        {
+            if (length > 0)
+            {
+                Node current = root;
+                Node prev = root;
+                Node next = current.Next;
+                Node last = root;
+                bool x = false;
+                while (x != true)
+                {
+                    next = current.Next;
+                    x = true;
+                    for (int i = length - 2; i >= 0; i--)
+                    {
+                        current = root;
+                        prev = root;
+                        for (int j = 0; j < i; j++)
+                        {
+                            current = current.Next;
+                        }
+                        if (current.Value < current.Next.Value)
+                        {
+                            next = current.Next;
+                            ShiftNodes(current, next);
+                            x = false;
+                        }
+
+                    }
+
+                }
+                last = current;
+                end = last;
             }
         }
     }

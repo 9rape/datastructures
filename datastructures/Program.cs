@@ -7,6 +7,7 @@ namespace datastructures
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Тут ничего нет - запустите лучше тесты с:");
         }
     }
 }

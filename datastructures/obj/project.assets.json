@@ -9,19 +9,19 @@
   },
   "packageFolders": {
     "C:\\Users\\Сергей\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Сергей\\source\\repos\\datastructures\\datastructures\\datastructures.csproj",
-      "projectName": "datastructures",
-      "projectPath": "C:\\Users\\Сергей\\source\\repos\\datastructures\\datastructures\\datastructures.csproj",
+      "projectUniqueName": "C:\\Users\\Сергей\\source\\repos\\datastructures\\DataStructures\\DataStructures.csproj",
+      "projectName": "DataStructures",
+      "projectPath": "C:\\Users\\Сергей\\source\\repos\\datastructures\\DataStructures\\DataStructures.csproj",
       "packagesPath": "C:\\Users\\Сергей\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Сергей\\source\\repos\\datastructures\\datastructures\\obj\\",
+      "outputPath": "C:\\Users\\Сергей\\source\\repos\\datastructures\\DataStructures\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet"
       ],
       "configFilePaths": [
         "C:\\Users\\Сергей\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

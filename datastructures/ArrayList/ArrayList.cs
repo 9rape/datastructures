@@ -358,7 +358,7 @@ namespace datastructures
             else return "Список пуст";
         }
 
-        public void SortAscending()
+        public void BubbleSortAscending()
         {
             for (int i = 0; i < array.Length - 1; i++)
             {
@@ -375,8 +375,21 @@ namespace datastructures
                 array[minIndex] = tmp;
             }
         }
+        
+        public void InsertionSortAscending()
+        {
+            for (int i = 1; i < array.Length; i++)
+            {
+                for (int j = i; j > 0 && array[j - 1] > array[j]; j--)
+                {
+                    int temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
 
-        public void SortDescending()
+        public void BubbleSortDescending()
         {
             for (int i = 0; i < array.Length - 1; i++)
             {
@@ -391,6 +404,19 @@ namespace datastructures
                 int tmp = array[i];
                 array[i] = array[minIndex];
                 array[minIndex] = tmp;
+            }
+        }
+        
+        public void InsertionSortDescending()
+        {
+            for (int i = 1; i < array.Length; i++)
+            {
+                for (int j = i; j > 0 && array[j - 1] < array[j]; j--)
+                {
+                    int temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
             }
         }
     }
